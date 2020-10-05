@@ -44,8 +44,11 @@ test("Game's next state should change to the correct state ", () => {
   const game2 = new Game(next_state);
 
   game.state = game.nextState();
-  game2.state = game2.nextState();
-
   expect(game.state).toEqual(next_state);
-  expect(game2.state).toEqual(game_state);
+
+  game.state = game.nextState();
+  expect(game.state).toEqual(game_state);
+
+  game.state = game.nextState();
+  expect(game.state).toEqual(next_state);
 });
